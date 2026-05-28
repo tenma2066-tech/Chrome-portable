@@ -4,8 +4,10 @@
 
 This is a specialized, independent fork of **Google Chrome Portable** designed to bypass organization-enforced Group Policy Objects (GPO). It allows users to browse without restrictive policies, forced extensions (monitoring software), or blocked settings, all while remaining completely portable.
 
-## 📥 Download (Full Package)
-Download the latest pre-configured package from the link below:
+## 📥 Download (Full Package) / ダウンロード（一括パッケージ）
+Download the latest pre-configured package from the link below:  
+最新版の構成済みパッケージは、以下のリンクからダウンロードできます：
+
 - **[Chrome-portable-v1.1.4.zip (GitHub Releases)](https://github.com/tenma2066-tech/Chrome-portable/releases/download/v1.1.4/Chrome-portable-v1.1.4.zip)**
 
 ---
