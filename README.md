@@ -2,6 +2,10 @@
 
 このリポジトリは、組織のグループポリシー (GPO) による制限を回避して起動することを目的とした、ポータブルな Google Chrome の独立フォークです。
 
+## ダウンロード (一括)
+最新版の ZIP パッケージは以下からダウンロードできます。
+- **[Chrome-portable-v1.zip (GitHub Releases)](https://github.com/tenma2066-tech/Chrome-portable/releases/download/v1.0.0/Chrome-portable-v1.zip)**
+
 ## 重要事項
 - **更新禁止**: Chrome 本体の更新は行わないでください（ポリシーバイパスが効かなくなる可能性があります）。
 - **独立性**: PC のレジストリを恒久的に汚染することなく、ポータブルに起動可能です。
