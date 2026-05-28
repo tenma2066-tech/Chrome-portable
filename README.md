@@ -36,14 +36,28 @@ Organizations typically use GPO to enforce settings by writing to specific Regis
 - **How it works**: It performs a binary search-and-replace on `chrome.dll` (the heart of Chrome). It changes the hardcoded registry paths that Chrome looks for (e.g., `SOFTWARE\Policies\Google\Chrome` becomes an invalid string).
 - **Benefit**: Since Chrome can no longer "find" the location where the organization stores its restrictions, it starts in a "Clean" state as if it were a fresh, unmanaged install.
 
-### 🚀 Usage Instructions
-1. **Extract** the ZIP file to a folder.
-2. **Close** any existing instances of Chrome.
-3. Run **`Run.bat`** (if you have admin) or **`patch.bat`** (if you don't).
-4. **Never Update**: If you see an "Update available" prompt, ignore it. Updating will overwrite the patched `chrome.dll` and restore restrictions.
+### 🚀 Usage Instructions (Step-by-Step)
+
+Choose **Method A** or **Method B** depending on your environment.
+
+#### If you have Administrator Access (Method A):
+1.  Navigate to the extracted folder.
+2.  Double-click **`Run.bat`**.
+3.  Click **"Yes"** on the UAC (User Account Control) prompt.
+4.  A black console window will appear and apply the registry locks.
+5.  Wait a few seconds, and Google Chrome will launch automatically.
+
+#### If you DO NOT have Administrator Access (Method B):
+1.  Navigate to the extracted folder.
+2.  Double-click **`patch.bat`**.
+3.  A black console window will appear. It will take **10-30 seconds** to patch `chrome.dll` on the first run.
+4.  Once you see `[+] Patch applied successfully`, Chrome will launch automatically.
+    *   *Note: Subsequent launches will be near-instant.*
 
 ### 🛠️ Restoration & Safety
-To revert Method A's registry locks, run **`Restore.bat`** as an administrator. This will delete the locks and allow the organization's policies to be re-applied normally.
+To revert Method A's registry locks and allow organization policies to return:
+1.  Run **`Restore.bat`** as an administrator.
+2.  Follow the prompts to unlock the keys and trigger a GPO refresh.
 
 ---
 
@@ -74,14 +88,29 @@ To revert Method A's registry locks, run **`Restore.bat`** as an administrator. 
 - **仕組み**: Chrome の心臓部である `chrome.dll` をバイナリレベルで検索し、制限情報を見に行くパス（住所）を書き換えます（例: `Google\Chrome` という文字列を無効なものに変える）。
 - **利点**: Chrome 自体が「制限がどこに書いてあるか」を見失うため、あたかも管理されていない個人の PC で起動したかのように、クリーンな状態で立ち上がります。
 
-### 🚀 詳細な使いかた
-1. ZIP ファイルを**展開**します。
-2. すでに開いている Chrome があればすべて**閉じます**。
-3. **`Run.bat`** (管理者あり) または **`patch.bat`** (管理者なし) を実行します。
-4. **絶対に更新しない**: Chrome のメニューからアップデートを行うと、パッチ済みの DLL が上書きされ、制限が復活してしまいます。
+### 🚀 詳細な使いかた（手順）
 
-### 🛠️ 復元と安全性
-方法 A で行ったレジストリのロックを解除し、元の組織環境に戻したい場合は、**`Restore.bat`** を管理者として実行してください。これによりロックが解除され、通常のポリシーが再適用されるようになります。
+パソコンの環境（管理者権限があるかどうか）に合わせて、**どちらか片方**を実行してください。
+
+#### 管理者権限（パスワード）が使える場合（方法 A）
+1.  展開（解凍）したフォルダを開きます。
+2.  フォルダ内にある **`Run.bat`** をダブルクリックして実行します。
+3.  「ユーザーアカウント制御」の画面が出たら **「はい」** を押してください。
+4.  黒い画面（コンソール）が出て、自動的に制限の解除（レジストリロック）が始まります。
+5.  数秒待つと、自動的に Google Chrome が起動します。
+
+#### 管理者権限が使えない場合（方法 B）
+1.  展開（解凍）したフォルダを開きます。
+2.  フォルダ内にある **`patch.bat`** をダブルクリックして実行します。
+3.  黒い画面が出ます。初回は `chrome.dll` の書き換えに **10〜30秒程度** かかります。
+4.  画面に `[+] Patch applied successfully`（パッチ適用完了）と表示されるまで待ってください。
+5.  完了すると、自動的に Google Chrome が起動します。
+    *   *※2回目以降は既に適用済みのため、すぐに起動します。*
+
+### 🛠️ 元に戻す方法
+方法 A で行ったレジストリのロックを解除し、組織ポリシー（制限ありの状態）に戻したい場合：
+1.  **`Restore.bat`** を管理者として実行してください。
+2.  画面の指示に従い、ロック解除とポリシーの再適用（gpupdate）を待ちます。
 
 ---
 
@@ -95,6 +124,6 @@ To revert Method A's registry locks, run **`Restore.bat`** as an administrator. 
 
 ---
 
-## ⚖️ Disclaimer
-This tool is for educational and personal research purposes only. Use it responsibly and in accordance with your organization's acceptable use policy. The author is not responsible for any data loss or policy violations.
-本ツールは教育および個人研究の目的で提供されています。組織の利用規約を遵守し、自己責任で使用してください。
+## ⚖️ Disclaimer / 免責事項
+This tool is for educational and personal research purposes only. Use it responsibly and in accordance with your organization's acceptable use policy. The author is not responsible for any data loss, system damage, or policy violations resulting from the use of this software.
+本ツールは教育および個人研究の目的で提供されています。組織の利用規約を遵守し、自己責任で使用してください。本ソフトウェアの使用によって生じたデータ損失、システム障害、またはポリシー違反について、作者は一切の責任を負いません。
